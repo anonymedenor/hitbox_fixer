@@ -855,11 +855,6 @@ void EXT_FUNC HL_StudioSetupBones(model_t* pModel, float frame, int sequence, co
 	byte prevcontroller[4];
 	byte controller[4];
 	vec3_t temp_angles;
-	if (!phf_hitbox_fix->value)
-	{
-		orig_interface.SV_StudioSetupBones(pModel, frame, sequence, angles, origin, pcontroller, pblending, iBone, pEdict);
-		return;
-	}
 
 	if (ENTINDEX(pEdict) <= api->GetMaxClients())
 	{
@@ -1123,12 +1118,7 @@ void EXT_FUNC CS_StudioSetupBones(model_t* pModel, float frame, int sequence, co
 	static vec4_t q3[MAXSTUDIOBONES];
 	static float pos4[MAXSTUDIOBONES][3];
 	static vec4_t q4[MAXSTUDIOBONES];
-
-	if (!phf_hitbox_fix->value || nofind)
-	{
-		orig_interface.SV_StudioSetupBones(pModel, frame, sequence, angles, origin, pcontroller, pblending, iBone, pEdict);
-		return;
-	}
+	
 	auto entId = ENTINDEX(pEdict);
 	if (entId > 0 && entId <= api->GetMaxClients())
 	{
