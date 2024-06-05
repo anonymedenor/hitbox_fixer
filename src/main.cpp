@@ -7,8 +7,7 @@
 cvar_t* sv_unlag;
 cvar_t* sv_maxunlag;
 cvar_t* sv_unlagpush;
-cvar_t hf_hitbox_fix = { "hbf_enabled", "1", FCVAR_SERVER | FCVAR_PROTECTED, 0.0f, NULL };
-cvar_t* phf_hitbox_fix;
+cvar_t hf_hitbox_fix = { "rehbf_version", RELEASE_VERSION, FCVAR_SERVER, 0.0f, nullptr };
 char g_ExecConfigCmd[MAX_PATH];
 std::unique_ptr<players_api> api;
 GameType_e g_eGameType;
@@ -1083,7 +1082,6 @@ bool OnMetaAttach()
 	sv_unlagpush = g_engfuncs.pfnCVarGetPointer("sv_unlagpush");
 
 	CVAR_REGISTER(&hf_hitbox_fix);
-	phf_hitbox_fix = CVAR_GET_POINTER(hf_hitbox_fix.name);
 
 	HF_Init_Config();
 	HF_Exec_Config();
