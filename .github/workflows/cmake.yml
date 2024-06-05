@@ -24,8 +24,9 @@ jobs:
       # The CMake binaries on the Github Actions machines are (as of this writing) 3.12
       run:  rm -rf build && CC=icc CXX=icpc cmake -B build -DCMAKE_TOOLCHAIN_FILE=cmake/linux-i686.cmake && cmake --build build -j 
 
-    - name: Deploy artifacts
-      uses: actions/upload-artifact@v2
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.3.3
+            
       with:
         name: linux
         path: ${{github.workspace}}/build/hitbox_fix_mm_i386.so
