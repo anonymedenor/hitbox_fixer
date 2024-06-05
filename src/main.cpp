@@ -11,7 +11,6 @@ cvar_t hf_hitbox_fix = { "rehbf_version", RELEASE_VERSION, FCVAR_SERVER, 0.0f, n
 char g_ExecConfigCmd[MAX_PATH];
 std::unique_ptr<players_api> api;
 GameType_e g_eGameType;
-const char CFG_FILE[] = "hbf.cfg";
 extern server_studio_api_t IEngineStudio;
 extern studiohdr_t* g_pstudiohdr;
 extern float(*g_pRotationMatrix)[3][4];
